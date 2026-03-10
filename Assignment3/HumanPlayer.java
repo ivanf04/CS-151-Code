@@ -21,7 +21,7 @@ public class HumanPlayer implements Player {
     public Move getMove() {
         while (true) {
             try {
-                System.out.print("Choose (rock = 1, paper = 2, scissors = 3): ");
+                //System.out.print("Choose (rock = 1, paper = 2, scissors = 3): ");
                 int input = Integer.parseInt(scanner.nextLine().trim());
 
                 Move move = Move.fromInt(input);

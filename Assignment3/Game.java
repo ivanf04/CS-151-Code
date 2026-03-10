@@ -25,8 +25,8 @@ public class Game {
         System.out.println("Starting Rock-Paper-Scissors Game.");
 
         
-        for (int round = 1; round <= 5; round++) {
-            System.out.printf("Round %d - ", round);
+        for (int round = 1; round <= 20; round++) {
+            System.out.printf("Round %d - Choose (rock = 1, paper = 2, scissors = 3):", round);
             Move humanMove = humanPlayer.getMove();
             Move computerMove = computerPlayer.getMove();
             Result result = classicRPS.determineOutcome(humanMove, computerMove);
