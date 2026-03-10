@@ -1,3 +1,5 @@
+package Assignment3;
+
 public enum Move {
     ROCK(1),
     PAPER(2),

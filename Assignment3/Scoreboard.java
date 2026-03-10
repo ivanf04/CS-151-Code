@@ -13,12 +13,30 @@ public class Scoreboard {
       this.draws = 0;
     }
 
-    public void humanWin(){
+    public void humanWin() {
       this.humanWins++;
     }
 
-    public void computerWin(){
+    public void computerWin() {
       this.computerWins++;
+    }
+
+    public void draw() {
+      this.draws++;
+    }
+
+    public void updateScore(Result result) {
+        switch (result) {
+          case HUMAN_WIN:
+            humanWin();
+            break;
+          case COMPUTER_WIN:
+            computerWin();
+            break;
+          default:
+            draw();
+        }
+
     }
 
     public int getHumanWins(){
@@ -30,10 +48,10 @@ public class Scoreboard {
     }
 
     public int getDraws(){
-      retutn draws;
+      return draws;
     }
 
-    public void toString(){
+    public void printScore(){
       System.out.printf("Score: Human:%d Computer:%d Draws:%d",
         this.humanWins, this.computerWins, this.draws);
       System.out.println();

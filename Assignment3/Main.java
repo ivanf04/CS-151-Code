@@ -7,9 +7,9 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
     Player bob = new HumanPlayer("Bob", scanner);
     Player computer = new ComputerPlayer("Computer1");
-    Rules rule = new ClassicRPS();
-    Scoreboard score = new Scoreboard();
+    ClassicRPS rule = new ClassicRPS();
+    Scoreboard scoreboard = new Scoreboard();
     Game game = new Game(bob, computer, rule, scoreboard);
-    game.play():
+    game.play();
   }
 }
