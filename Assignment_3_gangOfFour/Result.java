@@ -1,4 +1,4 @@
-package Assignment3;
+package Assignment_3_gangOfFour;
 
 public enum Result {
     HUMAN_WIN,

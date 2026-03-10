@@ -1,4 +1,4 @@
-package Assignment3;
+package Assignment_3_gangOfFour;
 import java.util.Random;
 
 public class ComputerPlayer implements Player {

@@ -1,4 +1,4 @@
-package Assignment3;
+package Assignment_3_gangOfFour;
 
 public interface Player {
     String getName();
