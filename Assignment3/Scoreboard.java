@@ -39,6 +39,8 @@ public class Scoreboard {
 
     }
 
+    //TODO: create printWinner() function 
+
     public int getHumanWins(){
       return this.humanWins;
     }

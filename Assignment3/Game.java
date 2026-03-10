@@ -26,7 +26,7 @@ public class Game {
 
         
         for (int round = 1; round <= 5; round++) {
-            System.out.printf("Round %d - Choose (1=rock, 2=paper, 3=scissors): ", round);
+            System.out.printf("Round %d - ", round);
             Move humanMove = humanPlayer.getMove();
             Move computerMove = computerPlayer.getMove();
             Result result = classicRPS.determineOutcome(humanMove, computerMove);
@@ -37,6 +37,8 @@ public class Game {
             scoreboard.printScore();
             System.out.println();
         }
+        //TODO: Display winner
+        System.out.println("Game over. Thanks for playing.");
         scoreboard.printScore();
     }
 }
