@@ -1,7 +1,6 @@
-/*
-  This class implements the functionality of a scoreboard. Instances of this class store the
-  human wins, computer wins and draws of a game of rock paper scissors (RPS). The class has functoins
-  to update the score, getter and setters, and a function to print the final outcome of a game of RPS. 
+/**
+ * Implements the functionality of a scoreboard. 
+ * Stores human wins, computer wins and draws 
  */
 package Assignment_3_gangOfFour;
 
@@ -41,10 +40,11 @@ public class Scoreboard {
       return draws;
     }
 
-    /*
-      This method is used after the result of a round of RPS is determined. Result is an ENUM type
-      that represts which player won a speicific round. The switch statement determines which instance variable to increment. 
-     */
+   /**
+    * used after the result of a round of RPS is determined. 
+    * 
+    * @param result ENUM value for reusult of a round 
+    */
     public void updateScore(Result result) {
         switch (result) {
           case HUMAN_WIN:
