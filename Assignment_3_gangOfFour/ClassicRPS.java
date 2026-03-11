@@ -1,6 +1,18 @@
 package Assignment_3_gangOfFour;
+
+/**
+* Implements the classic Rock-Paper-Scissors rules:
+* Rock beats Scissors, Paper beats Rock, Scissors beats Paper.
+*/
 public class ClassicRPS implements Rules {
 
+    /**
+    * Applies classic Rock-Paper-Scissors rules to determine the winner.
+    *
+    * @param human the human player's move
+    * @param computer the computer player's move
+    * @return the round Result
+    */
     @Override
     public Result determineOutcome(Move human, Move computer) {
 
