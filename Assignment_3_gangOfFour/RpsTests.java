@@ -6,11 +6,30 @@ import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
+/**
+ * Test driver for the Rock-Paper-Scissors program.
+ *
+ * This class runs tests for all major components of the system: Move,
+ * ClassicRPS rules, HumanPlayer input handling, ComputerPlayer random move
+ * generation, Scoreboard behavior, and overall Game flow.
+ *
+ * The tests simulate inputs and game conditions to verify that each component
+ * behaves correctly and that the system works as expected.
+ */
 public class RpsTests {
 
     private static int testsRun = 0;
     private static int testsPassed = 0;
 
+    /**
+     * Records the result of a test and prints whether it passed or failed.
+     *
+     * This method increments the total number of tests executed and increments
+     * the number of successful tests when the condition is true.
+     *
+     * param testName description of the test being executed param condition
+     * true if the test passes, false otherwise
+     */
     private static void check(String testName, boolean condition) {
         testsRun++;
         if (condition) {
@@ -21,6 +40,16 @@ public class RpsTests {
         }
     }
 
+    /**
+     * Creates a HumanPlayer that reads input from a provided string.
+     *
+     * This allows input behavior to be tested without requiring manual keyboard
+     * input during program execution. The string simulates what a user would
+     * type into the console.
+     *
+     * param input simulated user input return HumanPlayer that reads from the
+     * provided input
+     */
     private static HumanPlayer makeHumanPlayerWithInput(String input) {
         ByteArrayInputStream in
                 = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
@@ -28,6 +57,13 @@ public class RpsTests {
         return new HumanPlayer("Bob", scanner);
     }
 
+    /**
+     * Stub implementation of the Player interface used for testing.
+     *
+     * This class always returns a fixed move. It is used to create predictable
+     * game scenarios so that Game behavior can be tested without relying on
+     * random computer choices or console input.
+     */
     private static class StubPlayer implements Player {
 
         private final String name;
@@ -49,6 +85,13 @@ public class RpsTests {
         }
     }
 
+    /**
+     * Runs all test groups for the Rock-Paper-Scissors program.
+     *
+     * Each group tests a specific component of the system. After all tests are
+     * executed, the program prints the number of tests passed out of the total
+     * number of tests run.
+     */
     public static void main(String[] args) {
         testMove();
         testClassicRPS();
@@ -61,6 +104,13 @@ public class RpsTests {
         System.out.println("Tests passed: " + testsPassed + "/" + testsRun);
     }
 
+    /**
+     * Tests the Move enum functionality.
+     *
+     * These tests verify that integer inputs are correctly converted into Move
+     * values and that invalid integers return null. The stored numeric values
+     * for each move are also verified.
+     */
     private static void testMove() {
         System.out.println("=== Move Tests ===");
         check("Move.fromInt(1) returns ROCK", Move.fromInt(1) == Move.ROCK);
@@ -75,6 +125,13 @@ public class RpsTests {
         System.out.println();
     }
 
+    /**
+     * Tests the ClassicRPS rule engine.
+     *
+     * These tests verify that the rule logic correctly determines the outcome
+     * of every possible combination of human and computer moves, including win,
+     * loss, and draw conditions.
+     */
     private static void testClassicRPS() {
         System.out.println("=== ClassicRPS Tests ===");
         ClassicRPS rules = new ClassicRPS();
@@ -101,6 +158,13 @@ public class RpsTests {
         System.out.println();
     }
 
+    /**
+     * Tests HumanPlayer input handling.
+     *
+     * These tests simulate console input to verify that valid inputs produce
+     * the correct moves and that invalid inputs cause the program to prompt
+     * again until a valid move is entered.
+     */
     private static void testHumanPlayer() {
         System.out.println("=== HumanPlayer Tests ===");
 
@@ -131,6 +195,13 @@ public class RpsTests {
         System.out.println();
     }
 
+    /**
+     * Tests ComputerPlayer behavior.
+     *
+     * These tests verify that the computer player returns the correct name and
+     * that randomly generated moves are always valid values within the Move
+     * enum.
+     */
     private static void testComputerPlayer() {
         System.out.println("=== ComputerPlayer Tests ===");
 
@@ -151,6 +222,13 @@ public class RpsTests {
         System.out.println();
     }
 
+    /**
+     * Tests Scoreboard functionality.
+     *
+     * These tests verify that the scoreboard starts with zero values, that each
+     * score counter increments correctly, and that the updateScore() method
+     * correctly updates totals based on game outcomes.
+     */
     private static void testScoreboard() {
         System.out.println("=== Scoreboard Tests ===");
 
@@ -215,6 +293,14 @@ public class RpsTests {
         System.out.println();
     }
 
+    /**
+     * Tests overall game behavior.
+     *
+     * Stub players are used to create predictable outcomes so that the Game
+     * class can be tested deterministically. These tests verify that the game
+     * runs the correct number of rounds, updates the scoreboard properly, and
+     * prints expected output messages.
+     */
     private static void testGame() {
         System.out.println("=== Game Tests ===");
 
