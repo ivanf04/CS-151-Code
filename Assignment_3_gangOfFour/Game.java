@@ -1,5 +1,7 @@
 
 package Assignment_3_gangOfFour;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /**
 * Coordinates gameplay for a Rock-Paper-Scissors match.
@@ -11,6 +13,7 @@ public class Game {
     private final Player computerPlayer;
     private final ClassicRPS classicRPS;
     private final Scoreboard scoreboard;
+    private final Scanner scanner = new Scanner(System.in);
 
     /**
     * Constructs a Game with the specified players, rule set, and scoreboard.
@@ -31,6 +34,23 @@ public class Game {
         this.scoreboard = scoreboard;
     }
     
+    private int getNumRounds() {
+        boolean valid = false;
+        int numRounds = 0;
+        do {
+            try {
+                 System.out.print("How many rounds would you like to play? ");
+                 numRounds = scanner.nextInt();
+                 valid = true;
+            } catch (InputMismatchException e) {
+                System.out.println("\nInvalid input, please enter a valid integer.");
+                scanner.nextLine();
+            }
+        } while (!valid);
+         
+        return numRounds; 
+    }
+
     /**
     * Plays 20 rounds of Rock-Paper-Scissors.
     * Each round: gets both moves, determines outcome, prints round summary,
@@ -39,9 +59,10 @@ public class Game {
     public void play() {
 
         System.out.println("Starting Rock-Paper-Scissors Game.");
-
+        int numRounds = getNumRounds();
+        
         // Each round is one iteration of the loop 
-        for (int round = 1; round <= 20; round++) {
+        for (int round = 1; round <= numRounds; round++) {
             System.out.printf("Round %d - Choose (rock = 1, paper = 2, scissors = 3):", round);  //display round number input options 
             Move humanMove = humanPlayer.getMove(); 
             Move computerMove = computerPlayer.getMove();  
