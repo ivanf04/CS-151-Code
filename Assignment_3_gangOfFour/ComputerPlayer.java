@@ -1,5 +1,4 @@
 package Assignment_3_gangOfFour;
-import java.util.Random;
 
 /**
 * A Player controlled by the computer. Chooses moves randomly.
@@ -7,7 +6,7 @@ import java.util.Random;
 public class ComputerPlayer implements Player {
 
     private final String name;
-    private final Random random = new Random();
+    private final ChoiceAlgrorithm randomChoice;
 
      /**
     * Constructs a ComputerPlayer with the specified name.
@@ -16,6 +15,7 @@ public class ComputerPlayer implements Player {
     */
     public ComputerPlayer(String name) {
         this.name = name;
+        this.randomChoice = new randomChoice();
     }
 
     /**
@@ -35,7 +35,7 @@ public class ComputerPlayer implements Player {
     */
     @Override
     public Move getMove() {
-        int choice = random.nextInt(3) + 1;
-        return Move.fromInt(choice);
+        Move move = randomChoice.determineMove();
+        return move;
     }
 }
