@@ -6,13 +6,13 @@ import java.util.*;
  */
 public class test4 {
     public static void main(String[] args) {
+        MoveHistory moveHistory = new MoveHistory();
         Scanner scanner = new Scanner(System.in);
         Player human = new HumanPlayer("Human", scanner);
-        ChoiceAlgorithm mlChoice = new MLChoice();
-        Player mLComputer = new ComputerPlayer("ML", mlChoice);
+        Player mLComputer = new ComputerPlayer("ML", false, moveHistory);
         ClassicRPS rule = new ClassicRPS();
         Scoreboard scoreboard = new Scoreboard();
-        Game game = new Game(human, mLComputer, rule, scoreboard);
+        Game game = new Game(human, mLComputer, rule, scoreboard, moveHistory);
         game.play();
 
     }

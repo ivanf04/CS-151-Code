@@ -39,6 +39,20 @@ public class Game {
         this.scoreboard = scoreboard;
         this.moveHistory = moveHistory;
     }
+    
+    public Game(Player humanPlayer,
+                Player computerPlayer,
+                ClassicRPS rule,
+                Scoreboard scoreboard,
+                MoveHistory moveHistory) {
+
+        this.humanPlayer = humanPlayer;
+        this.computerPlayer = computerPlayer;
+        this.classicRPS = rule;
+        this.scoreboard = scoreboard;
+        this.moveHistory = moveHistory;
+    }
+    
 
     /**
      * Prompts the user for the number of rounds to play.
