@@ -7,7 +7,7 @@ import java.util.Random;
  */
 public class randomChoice implements ChoiceAlgorithm {
 
-    private final Random random = new Random();
+    private final Random random;
 
     public randomChoice() {
         this.random = new Random();

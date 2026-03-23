@@ -14,6 +14,5 @@ public class test4 {
         Scoreboard scoreboard = new Scoreboard();
         Game game = new Game(human, mLComputer, rule, scoreboard, moveHistory);
         game.play();
-
     }
 }

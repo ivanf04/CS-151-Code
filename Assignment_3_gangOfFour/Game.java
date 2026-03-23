@@ -11,11 +11,12 @@ import java.util.Scanner;
 public class Game {
 
     private final Player humanPlayer;
-    private final ComputerPlayer computerPlayer;
+    private final Player computerPlayer;
     private final ClassicRPS classicRPS;
     private final Scoreboard scoreboard;
     private final MoveHistory moveHistory;
     private final Scanner scanner = new Scanner(System.in);
+
 
     /**
      * Constructs a Game with the specified players, rule set, scoreboard,
@@ -25,17 +26,38 @@ public class Game {
      * @param computerPlayer the computer player
      * @param rule the rules used to determine round outcomes
      * @param scoreboard the scoreboard used to track results
-     * @param moveHistory the shared move history
      */
     public Game(Player humanPlayer,
                 ComputerPlayer computerPlayer,
-                ClassicRPS rule,
+                ClassicRPS classicRPS,
+                Scoreboard scoreboard) {
+
+        this.humanPlayer = humanPlayer;
+        this.computerPlayer = computerPlayer;
+        this.classicRPS = classicRPS;
+        this.scoreboard = scoreboard;
+        this.moveHistory = new MoveHistory();
+    }
+
+    /**
+     * Constructs a Game with the specified players, rule set, scoreboard,
+     * and move history.
+     *
+     * @param humanPlayer the human player
+     * @param mLComputer the computer player
+     * @param rule the rules used to determine round outcomes
+     * @param scoreboard the scoreboard used to track results
+     * @param moveHistory the shared move history
+     */
+    public Game(Player humanPlayer,
+                Player mLComputer,
+                ClassicRPS classicRPS,
                 Scoreboard scoreboard,
                 MoveHistory moveHistory) {
 
         this.humanPlayer = humanPlayer;
-        this.computerPlayer = computerPlayer;
-        this.classicRPS = rule;
+        this.computerPlayer = mLComputer;
+        this.classicRPS = classicRPS;
         this.scoreboard = scoreboard;
         this.moveHistory = moveHistory;
     }
