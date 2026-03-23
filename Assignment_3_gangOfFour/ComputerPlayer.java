@@ -1,57 +1,59 @@
 package Assignment_3_gangOfFour;
 
 /**
-* A Player controlled by the computer. Chooses moves randomly.
-*/
+ * A Player controlled by the computer.
+ * The move is selected by a ChoiceAlgorithm.
+ */
 public class ComputerPlayer implements Player {
 
     private final String name;
-    private final ChoiceAlgrorithm choiceAlgrorithm;
+    private final ChoiceAlgorithm randomChoice;
 
     /**
-    * Constructs a ComputerPlayer with the specified name.
-    *
-    * @param name the name of the computer player
-    */
-    public ComputerPlayer(String name) {
-        this.name = name;
-        this.choiceAlgrorithm = new randomChoice();
-    }
-
-    /**
-     * overloaded constructor to set algorithm 
-     * 
-     * @param name name of computer player
-     * @param random T == random, F == ML choice
+     * Constructs a ComputerPlayer with the specified name and algorithm.
+     *
+     * @param name the name of the computer player
+     * @param choiceAlgorithm the move-selection algorithm to use
      */
-    public ComputerPlayer(String name, boolean random) {
+    public ComputerPlayer(String name, ChoiceAlgrorithm choiceAlgorithm) {
         this.name = name;
-        if (random) {
-            this.choiceAlgrorithm = new randomChoice();
-        }else{
-            this.choiceAlgrorithm = new MLChoice();
-        }
-        
+        this.choiceAlgorithm = choiceAlgorithm;
     }
 
     /**
-    * Returns the computer player's name.
-    *
-    * @return the computer player's name
-    */
+     * Returns the computer player's name.
+     *
+     * @return the computer player's name
+     */
     @Override
     public String getName() {
         return name;
     }
 
     /**
-    * Randomly selects and returns a Move.
-    *
-    * @return a randomly chosen Move (ROCK, PAPER, or SCISSORS)
-    */
+     * Selects and returns a Move using the configured algorithm.
+     *
+     * @return the chosen Move
+     */
     @Override
     public Move getMove() {
-        Move move = choiceAlgrorithm.determineMove();
-        return move;
+        return choiceAlgorithm.determineMove();
+    }
+
+    /**
+     * Passes completed round data to the algorithm.
+     *
+     * @param humanMove the human player's move
+     * @param computerMove the computer player's move
+     */
+    public void recordRound(Move humanMove, Move computerMove) {
+        choiceAlgorithm.recordRound(humanMove, computerMove);
+    }
+
+    /**
+     * Saves algorithm data at the end of the game.
+     */
+    public void saveData() {
+        choiceAlgorithm.saveData();
     }
 }
