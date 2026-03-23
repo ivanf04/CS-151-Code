@@ -26,16 +26,16 @@ public class randomChoice implements ChoiceAlgorithm {
     /**
      * Random strategy does not learn from previous rounds.
      */
-    @Override
-    public void recordRound(Move humanMove, Move computerMove) {
-        // Does nothing
-    }
+    // @Override
+    // public void recordRound(Move humanMove, Move computerMove) {
+    //     // Does nothing
+    // }
 
     /**
      * Random strategy has nothing to save.
      */
-    @Override
-    public void saveData() {
-        // Does nothing
-    }
+    // @Override
+    // public void saveData() {
+    //     // Does nothing
+    // }
 }

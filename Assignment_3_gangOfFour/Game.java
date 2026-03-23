@@ -14,6 +14,7 @@ public class Game {
     private final ClassicRPS classicRPS;
     private final Scoreboard scoreboard;
     private final Scanner scanner = new Scanner(System.in);
+    private final MoveHistory moveHistory;
 
     /**
     * Constructs a Game with the specified players, rule set, and scoreboard.
@@ -32,24 +33,9 @@ public class Game {
         this.computerPlayer = computerPlayer;
         this.classicRPS = rule;
         this.scoreboard = scoreboard;
+        this.moveHistory = new MoveHistory();
     }
     
-    private int getNumRounds() {
-        boolean valid = false;
-        int numRounds = 0;
-        do {
-            try {
-                 System.out.print("How many rounds would you like to play? ");
-                 numRounds = scanner.nextInt();
-                 valid = true;
-            } catch (InputMismatchException e) {
-                System.out.println("\nInvalid input, please enter a valid integer.");
-                scanner.nextLine();
-            }
-        } while (!valid);
-         
-        return numRounds; 
-    }
 
     /**
     * Plays 20 rounds of Rock-Paper-Scissors.
@@ -66,7 +52,8 @@ public class Game {
             System.out.printf("Round %d - Choose (rock = 1, paper = 2, scissors = 3):", round);  //display round number input options 
             Move humanMove = humanPlayer.getMove(); 
             Move computerMove = computerPlayer.getMove();  
-            Result result = classicRPS.determineOutcome(humanMove, computerMove);   
+            Result result = classicRPS.determineOutcome(humanMove, computerMove);
+            moveHistory.recordRound(humanMove, computerMove);   
             scoreboard.updateScore(result);
             System.out.printf("You choose %s The computer chose %s. ", humanMove, computerMove); //display the selected moves of each player
             scoreboard.displayRoundWinner(result); //display the winer of the round 
@@ -78,5 +65,22 @@ public class Game {
         // Game has ended, display "Game over" and final score of all rounds
         System.out.println("Game over. Thanks for playing.");
         scoreboard.printScore();
+    }
+
+    private int getNumRounds() {
+        boolean valid = false;
+        int numRounds = 0;
+        do {
+            try {
+                 System.out.print("How many rounds would you like to play? ");
+                 numRounds = scanner.nextInt();
+                 valid = true;
+            } catch (InputMismatchException e) {
+                System.out.println("\nInvalid input, please enter a valid integer.");
+                scanner.nextLine();
+            }
+        } while (!valid);
+         
+        return numRounds; 
     }
 }

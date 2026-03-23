@@ -55,14 +55,14 @@ public class ComputerPlayer implements Player {
      * @param humanMove the human player's move
      * @param computerMove the computer player's move
      */
-    public void recordRound(Move humanMove, Move computerMove) {
-        choiceAlgorithm.recordRound(humanMove, computerMove);
-    }
+    // public void recordRound(Move humanMove, Move computerMove) {
+    //     choiceAlgorithm.recordRound(humanMove, computerMove);
+    // }
 
     /**
      * Saves algorithm data at the end of the game.
      */
-    public void saveData() {
-        choiceAlgorithm.saveData();
-    }
+    // public void saveData() {
+    //     choiceAlgorithm.saveData();
+    // }
 }

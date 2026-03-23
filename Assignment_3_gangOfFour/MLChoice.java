@@ -78,15 +78,14 @@ public class MLChoice implements ChoiceAlgorithm {
      * @param humanMove the move chosen by the human player
      * @param computerMove the move chosen by the computer player
      */
-    @Override
-    public void recordRound(Move humanMove, Move computerMove) {
-        memory.recordRound(humanMove, computerMove);
-    }
+    // @Override
+    // public void recordRound(Move humanMove, Move computerMove) {
+    //     memory.recordRound(humanMove, computerMove);
+    // }
 
     /**
      * Saves the learned move history and frequency data.
      */
-    @Override
     public void saveData() {
         memory.saveData();
     }
