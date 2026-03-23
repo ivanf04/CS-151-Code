@@ -10,6 +10,7 @@ public class randomChoice implements ChoiceAlgorithm {
     private final Random random = new Random();
 
     public randomChoice() {
+        this.random = new Random();
     }
 
     /**
