@@ -13,10 +13,10 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
     Player bob = new HumanPlayer("Bob", scanner);
     Player computer = new ComputerPlayer("Computer1");
-    ClassicRPS rule = new ClassicRPS();
+    ClassicRPS classicRPS = new ClassicRPS();
     Scoreboard scoreboard = new Scoreboard();
     MoveHistory moveHistory = new MoveHistory();
-    Game game = new Game(bob, computer, rule, scoreboard, moveHistory);
+    Game game = new Game(bob, computer, classicRPS, scoreboard, moveHistory);
     game.play();
   }
 }

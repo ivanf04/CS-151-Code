@@ -23,20 +23,4 @@ public class randomChoice implements ChoiceAlgorithm {
         int choice = random.nextInt(3) + 1;
         return Move.fromInt(choice);
     }
-
-    /**
-     * Random strategy does not learn from previous rounds.
-     */
-    // @Override
-    // public void recordRound(Move humanMove, Move computerMove) {
-    //     // Does nothing
-    // }
-
-    /**
-     * Random strategy has nothing to save.
-     */
-    // @Override
-    // public void saveData() {
-    //     // Does nothing
-    // }
 }

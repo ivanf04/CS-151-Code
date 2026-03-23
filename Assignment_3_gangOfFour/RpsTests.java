@@ -311,7 +311,8 @@ public class RpsTests {
                 new StubPlayer("Human", Move.ROCK),
                 new StubPlayer("Computer", Move.SCISSORS),
                 rules,
-                scoreboard1
+                scoreboard1,
+                new MoveHistory()
         );
         game1.play();
         check("Game can produce 20 human wins",
@@ -324,7 +325,8 @@ public class RpsTests {
                 new StubPlayer("Human", Move.ROCK),
                 new StubPlayer("Computer", Move.ROCK),
                 rules,
-                scoreboard2
+                scoreboard2,
+                new MoveHistory()
         );
         game2.play();
         check("Game can produce 20 draws",
@@ -337,7 +339,8 @@ public class RpsTests {
                 new StubPlayer("Human", Move.SCISSORS),
                 new StubPlayer("Computer", Move.ROCK),
                 rules,
-                scoreboard3
+                scoreboard3,
+                new MoveHistory()
         );
         game3.play();
         check("Game can produce 20 computer wins",
@@ -355,7 +358,8 @@ public class RpsTests {
                     new StubPlayer("Human", Move.ROCK),
                     new StubPlayer("Computer", Move.ROCK),
                     rules,
-                    scoreboard4
+                    scoreboard4,
+                    new MoveHistory()
             );
             game4.play();
         } finally {

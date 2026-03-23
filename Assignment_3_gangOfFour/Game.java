@@ -97,7 +97,7 @@ public class Game {
      * prints round results, and records the round in shared move history.
      */
     public void play() {
-        System.out.println("Starting Rock-Paper-Scissors Game.");
+        System.out.println("Starting Rock-Paper-Scissors Game.");   //prompt user for number of rounds
         int numRounds = getNumRounds();
 
         for (int round = 1; round <= numRounds; round++) {
@@ -109,9 +109,9 @@ public class Game {
             Result result = classicRPS.determineOutcome(humanMove, computerMove);
             scoreboard.updateScore(result);
 
-            moveHistory.recordRound(humanMove, computerMove);
+            moveHistory.recordRound(humanMove, computerMove);   //Save moves in MoveHistory 
 
-            System.out.printf("You chose %s. The computer chose %s. ", humanMove, computerMove);
+            System.out.printf("You chose %s. The computer chose %s. ", humanMove, computerMove);    //display round results 
             scoreboard.displayRoundWinner(result);
             System.out.println();
             scoreboard.printScore();
