@@ -36,6 +36,19 @@ public class Game {
         this.moveHistory = new MoveHistory();
     }
     
+    public Game(Player humanPlayer,
+                Player computerPlayer,
+                ClassicRPS rule,
+                Scoreboard scoreboard,
+                MoveHistory moveHistory) {
+
+        this.humanPlayer = humanPlayer;
+        this.computerPlayer = computerPlayer;
+        this.classicRPS = rule;
+        this.scoreboard = scoreboard;
+        this.moveHistory = moveHistory;
+    }
+    
 
     /**
     * Plays 20 rounds of Rock-Paper-Scissors.
