@@ -17,7 +17,6 @@ public class ComputerPlayer implements Player {
     public ComputerPlayer(String name) {
         this.name = name;
         this.choiceAlgorithm = new randomChoice();
-     //   this.moveHistory = null;
     }
 
     /**

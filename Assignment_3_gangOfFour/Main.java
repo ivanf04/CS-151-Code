@@ -15,7 +15,8 @@ public class Main {
     Player computer = new ComputerPlayer("Computer1");
     ClassicRPS rule = new ClassicRPS();
     Scoreboard scoreboard = new Scoreboard();
-    Game game = new Game(bob, computer, rule, scoreboard);
+    MoveHistory moveHistory = new MoveHistory();
+    Game game = new Game(bob, computer, rule, scoreboard, moveHistory);
     game.play();
   }
 }
