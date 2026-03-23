@@ -15,18 +15,11 @@ public class MLChoice implements ChoiceAlgorithm {
 
     /**
      * Constructs an MLChoice object using the default sequence length of 5.
-     */
-    public MLChoice() {
-        this(5);
-    }
-
-    /**
-     * Constructs an MLChoice object with a specified sequence length.
      *
-     * @param n the sequence length used by the machine learning algorithm
+     * @param memory the shared move history object
      */
-    public MLChoice(int n) {
-        this.memory = new MoveHistory(n);
+    public MLChoice(MoveHistory memory) {
+        this.memory = memory;
         this.fallback = new randomChoice();
     }
 
@@ -70,24 +63,6 @@ public class MLChoice implements ChoiceAlgorithm {
         }
 
         return counterMove(predicted);
-    }
-
-    /**
-     * Records the completed round so the algorithm can learn from it.
-     *
-     * @param humanMove the move chosen by the human player
-     * @param computerMove the move chosen by the computer player
-     */
-    // @Override
-    // public void recordRound(Move humanMove, Move computerMove) {
-    //     memory.recordRound(humanMove, computerMove);
-    // }
-
-    /**
-     * Saves the learned move history and frequency data.
-     */
-    public void saveData() {
-        memory.saveData();
     }
 
     /**
