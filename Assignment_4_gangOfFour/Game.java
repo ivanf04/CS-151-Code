@@ -1,4 +1,4 @@
-package Assignment_3_gangOfFour;
+package Assignment_4_gangOfFour;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

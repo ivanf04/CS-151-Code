@@ -1,4 +1,4 @@
-package Assignment_3_gangOfFour;
+package Assignment_4_gangOfFour;
 
 /**
  * A Player controlled by the computer.
