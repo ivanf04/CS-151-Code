@@ -1,6 +1,7 @@
 package Assignment_3_gangOfFour;
 
 import java.util.*;
+import java.io.*;
 
 /**
  * Stores recent move history and sequence frequencies for the ML algorithm.
@@ -77,6 +78,14 @@ public class MoveHistory {
         updateSequenceCount(humanMove);
         appendChoice(humanMove);
         appendChoice(computerMove);
+    }
+
+    /**
+     * 
+     * @return the current prefix (last four move) of the data in the deque 
+     */
+    public String getCurrentPrefix() {
+        return buildCurrentPrefix();
     }
 
     /**

@@ -7,7 +7,16 @@ package Assignment_3_gangOfFour;
 public class ComputerPlayer implements Player {
 
     private final String name;
-    private final ChoiceAlgorithm randomChoice;
+    private final ChoiceAlgorithm choiceAlgorithm;
+
+    /**
+     * Constructor with default choice algorthim of random
+     * @param name of computer player 
+     */
+    public ComputerPlayer(String name) {
+        this.name = name;
+        this.choiceAlgorithm = new randomChoice();
+    }
 
     /**
      * Constructs a ComputerPlayer with the specified name and algorithm.
@@ -15,7 +24,7 @@ public class ComputerPlayer implements Player {
      * @param name the name of the computer player
      * @param choiceAlgorithm the move-selection algorithm to use
      */
-    public ComputerPlayer(String name, ChoiceAlgrorithm choiceAlgorithm) {
+    public ComputerPlayer(String name, ChoiceAlgorithm choiceAlgorithm) {
         this.name = name;
         this.choiceAlgorithm = choiceAlgorithm;
     }
