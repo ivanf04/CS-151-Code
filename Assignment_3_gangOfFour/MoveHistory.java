@@ -44,9 +44,9 @@ public class MoveHistory {
     /**
      * Returns the current prefix formed by the last n - 1 recorded choices.
      *
-     * @return a sequence string such as "RSPS"
+     * @return the current prefix string
      */
-    public String buildCurrentPrefix() {
+    public String getCurrentPrefix() {
         StringBuilder builder = new StringBuilder();
         for (Move move : recentChoices) {
             builder.append(moveToChar(move));
@@ -78,14 +78,6 @@ public class MoveHistory {
         updateSequenceCount(humanMove);
         appendChoice(humanMove);
         appendChoice(computerMove);
-    }
-
-    /**
-     * 
-     * @return the current prefix (last four move) of the data in the deque 
-     */
-    public String getCurrentPrefix() {
-        return buildCurrentPrefix();
     }
 
     /**
