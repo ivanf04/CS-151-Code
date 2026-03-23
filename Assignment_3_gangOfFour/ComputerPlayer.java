@@ -8,7 +8,7 @@ public class ComputerPlayer implements Player {
 
     private final String name;
     private final ChoiceAlgorithm choiceAlgorithm;
-    private MoveHistory moveHistory;
+   // private MoveHistory moveHistory;
 
     /**
      * Constructor with default choice algorthim of random
@@ -17,7 +17,7 @@ public class ComputerPlayer implements Player {
     public ComputerPlayer(String name) {
         this.name = name;
         this.choiceAlgorithm = new randomChoice();
-        this.moveHistory = null;
+     //   this.moveHistory = null;
     }
 
     /**
@@ -26,10 +26,10 @@ public class ComputerPlayer implements Player {
      * @param name the name of the computer player
      * @param choiceAlgorithm the move-selection algorithm to use
      */
-    public ComputerPlayer(String name, ChoiceAlgorithm choiceAlgorithm, MoveHistory moveHistory) {
+    public ComputerPlayer(String name, ChoiceAlgorithm choiceAlgorithm) {
         this.name = name;
         this.choiceAlgorithm = choiceAlgorithm;
-        this.moveHistory = moveHistory;
+       // this.moveHistory = moveHistory;
     }
 
     /**
@@ -43,9 +43,8 @@ public class ComputerPlayer implements Player {
             this.choiceAlgorithm = new randomChoice();
         }
         else {
-            this.choiceAlgorithm = new MLChoice();
+            this.choiceAlgorithm = new MLChoice(moveHistory);
         }
-        this.moveHistory = moveHistory;
     }
 
     /**
@@ -56,10 +55,6 @@ public class ComputerPlayer implements Player {
     @Override
     public String getName() {
         return name;
-    }
-
-    public void setMoveHistory(MoveHistory moveHistory) {
-        this.moveHistory = moveHistory;
     }
 
     /**

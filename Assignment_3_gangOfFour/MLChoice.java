@@ -23,10 +23,6 @@ public class MLChoice implements ChoiceAlgorithm {
         this.fallback = new randomChoice();
     }
 
-    public MLChoice(MoveHistory memory) {
-        this.memory = memory;
-        this.fallback = new randomChoice();
-    }
 
     /**
      * Determines the computer player's next move.
