@@ -6,16 +6,32 @@ package Assignment_3_gangOfFour;
 public class ComputerPlayer implements Player {
 
     private final String name;
-    private final ChoiceAlgrorithm randomChoice;
+    private final ChoiceAlgrorithm choiceAlgrorithm;
 
-     /**
+    /**
     * Constructs a ComputerPlayer with the specified name.
     *
     * @param name the name of the computer player
     */
     public ComputerPlayer(String name) {
         this.name = name;
-        this.randomChoice = new randomChoice();
+        this.choiceAlgrorithm = new randomChoice();
+    }
+
+    /**
+     * overloaded constructor to set algorithm 
+     * 
+     * @param name name of computer player
+     * @param random T == random, F == ML choice
+     */
+    public ComputerPlayer(String name, boolean random) {
+        this.name = name;
+        if (random) {
+            this.choiceAlgrorithm = new randomChoice();
+        }else{
+            this.choiceAlgrorithm = new MLChoice();
+        }
+        
     }
 
     /**
@@ -35,7 +51,7 @@ public class ComputerPlayer implements Player {
     */
     @Override
     public Move getMove() {
-        Move move = randomChoice.determineMove();
+        Move move = choiceAlgrorithm.determineMove();
         return move;
     }
 }

@@ -10,6 +10,7 @@ public class MLChoice implements ChoiceAlgrorithm {
     private int n;
     private Deque<Move> history;
     private Map<List<Move>, Integer> recordedChoices;
+    private ChoiceAlgrorithm random = new randomChoice();
 
     /**
      * default constructor sets n = 5
@@ -62,6 +63,10 @@ public class MLChoice implements ChoiceAlgrorithm {
     @Override
     public Move determineMove() {
 
+        if (history.size() < n){
+            return random.determineMove();
+        }
+
         int maxFequency = 0; 
         List<Move> predictedMoves = new ArrayList<>();
         /**
@@ -87,7 +92,7 @@ public class MLChoice implements ChoiceAlgrorithm {
                 //match found, update max frequency and predictedMoves
                 if(recordedChoices.get(key) >= maxFequency) {
                     maxFequency = recordedChoices.get(key);
-                    predictedMoves = key; 
+                    predictedMoves.addAll(key); 
                 }
             }
         }
