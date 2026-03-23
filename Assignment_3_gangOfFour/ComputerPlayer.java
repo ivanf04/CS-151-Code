@@ -38,12 +38,7 @@ public class ComputerPlayer implements Player {
      */
      public ComputerPlayer(String name, boolean rand, MoveHistory moveHistory) {
         this.name = name;
-        if(rand) {
-            this.choiceAlgorithm = new randomChoice();
-        }
-        else {
-            this.choiceAlgorithm = new MLChoice(moveHistory);
-        }
+        this.choiceAlgorithm = ChoiceFactory.createChoice(rand, moveHistory);
     }
 
     /**
