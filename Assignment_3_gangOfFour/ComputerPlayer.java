@@ -8,6 +8,7 @@ public class ComputerPlayer implements Player {
 
     private final String name;
     private final ChoiceAlgorithm choiceAlgorithm;
+   // private MoveHistory moveHistory;
 
     /**
      * Constructor with default choice algorthim of random
@@ -16,6 +17,7 @@ public class ComputerPlayer implements Player {
     public ComputerPlayer(String name) {
         this.name = name;
         this.choiceAlgorithm = new randomChoice();
+     //   this.moveHistory = null;
     }
 
     /**
@@ -27,6 +29,22 @@ public class ComputerPlayer implements Player {
     public ComputerPlayer(String name, ChoiceAlgorithm choiceAlgorithm) {
         this.name = name;
         this.choiceAlgorithm = choiceAlgorithm;
+       // this.moveHistory = moveHistory;
+    }
+
+    /**
+     * TODO implement choice factory 
+     * @param name
+     * @param rand
+     */
+     public ComputerPlayer(String name, boolean rand, MoveHistory moveHistory) {
+        this.name = name;
+        if(rand) {
+            this.choiceAlgorithm = new randomChoice();
+        }
+        else {
+            this.choiceAlgorithm = new MLChoice(moveHistory);
+        }
     }
 
     /**
@@ -55,14 +73,14 @@ public class ComputerPlayer implements Player {
      * @param humanMove the human player's move
      * @param computerMove the computer player's move
      */
-    public void recordRound(Move humanMove, Move computerMove) {
-        choiceAlgorithm.recordRound(humanMove, computerMove);
-    }
+    // public void recordRound(Move humanMove, Move computerMove) {
+    //     choiceAlgorithm.recordRound(humanMove, computerMove);
+    // }
 
     /**
      * Saves algorithm data at the end of the game.
      */
-    public void saveData() {
-        choiceAlgorithm.saveData();
-    }
+    // public void saveData() {
+    //     choiceAlgorithm.saveData();
+    // }
 }
