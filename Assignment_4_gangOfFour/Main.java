@@ -1,13 +1,14 @@
+package Assignment_4_gangOfFour;
+
 /**
  * Simple test program to run a playthrough of rock paper scissors(RPS)
  * 
  * To compile and run the project,
- * javac Assignment_3_gangOfFour/*.java
+ * javac Assignment_4_gangOfFour/*.java
  * 
  * then to run Main.java
- * java Assignment_3_gangOfFour.Main -m
+ * java Assignment_4_gangOfFour.Main -m
  */
-package Assignment_3_gangOfFour;
 import java.util.*;
 
 /**
