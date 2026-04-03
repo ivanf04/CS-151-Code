@@ -1,4 +1,4 @@
-package Assignment_3_gangOfFour;
+package Assignment_4_gangOfFour;
 
 /**
 * Represents the possible moves in classic Rock-Paper-Scissors.

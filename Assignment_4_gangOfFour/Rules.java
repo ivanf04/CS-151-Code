@@ -1,4 +1,4 @@
-package Assignment_3_gangOfFour;
+package Assignment_4_gangOfFour;
 
 /**
 * Defines a rule set for determining the outcome of a round

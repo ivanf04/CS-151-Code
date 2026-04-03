@@ -1,4 +1,4 @@
-package Assignment_3_gangOfFour;
+package Assignment_4_gangOfFour;
 
 /**
 * Represents a player in the game who has a name and can choose a move.
