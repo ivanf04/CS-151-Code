@@ -30,15 +30,6 @@ public class ComputerPlayer implements Player {
     }
 
     /**
-     * @param name of the computer player
-     * @param rand T = random choice, F = ml choice 
-     */
-     public ComputerPlayer(String name, boolean rand, MoveHistory moveHistory) {
-        this.name = name;
-        this.choiceAlgorithm = ChoiceFactory.createChoice(rand, moveHistory);
-    }
-
-    /**
      * Returns the computer player's name.
      *
      * @return the computer player's name
