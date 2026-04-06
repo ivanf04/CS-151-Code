@@ -1,45 +1,67 @@
 package Assignment_4_gangOfFour;
 
-/**
- * Simple test program to run a playthrough of rock paper scissors(RPS)
- * 
- * To compile and run the project,
- * javac Assignment_4_gangOfFour/*.java
- * 
- * then to run Main.java
- * java Assignment_4_gangOfFour.Main -m
- */
 import java.util.*;
 
 /**
- * Test file for the ML algorithm 
- * Run "java test4 -r" for random computer move selection
- * Run "java test4 -m" for ML computer move selection
+ * Simple test program to run gameplay of rock paper scissors (RPS)
+ * 
+ * To compile:
+ * javac Assignment_4_gangOfFour/*.java
+ *
+ * To run:
+ * java Assignment_4_gangOfFour.Main -r   // random algorithm
+ * java Assignment_4_gangOfFour.Main -m   // machine learning algorithm
+ *
+ * If no argument is provided, the program defaults to random choice.
+ * 
+ * Design fixes:
+ * Problem #1 (Interface design):
+ * - The ComputerPlayer no longer chooses the algorithm internally via boolean constructor.
+ * - Instead, the ChoiceAlgorithm is created here (in Main) and passed 
+ * into the ComputerPlayer constructor.
+ *
+ * Problem #3 (Algorithm swapping/CLI handling):
+ * - Command-line parsing is handled more cleanly and explicitly.
+ * - Both "-r" and "-m" are supported, and invalid inputs (or none) are handled.
+ * - The ChoiceFactory centralizes algorithm selection, making it easy
+ *   to extend or modify in the future.
+ * 
  */
+
 public class Main {
+
     public static void main(String[] args) {
+
         MoveHistory moveHistory = new MoveHistory();
         Scanner scanner = new Scanner(System.in);
 
-        Player human = new HumanPlayer("Human", scanner);
+        // Default algorithm option
+        String option = "-r";
 
-        //Default = random 
-        boolean useRandom = true; 
+        // Handle CLI arguments
+        if (args.length == 1) {
+            option = args[0];
 
-        //read CLI argument
-        if(args.length > 0){
-            if(args[0].equals("-m"))
-                useRandom = false;
-            } else if (args[0].equals("-r")) {
-            useRandom = true;
+            if (!option.equals("-r") && !option.equals("-m")) {
+                System.out.println("Invalid argument: " + option);
+                return;
+            }
         }
 
-        Player mLComputer = new ComputerPlayer("ML", useRandom, moveHistory);
+        ChoiceAlgorithm algorithm = ChoiceFactory.createChoice(option, moveHistory);
+
+        Player human = new HumanPlayer("Human", scanner);
+        ComputerPlayer computer = new ComputerPlayer("Computer", algorithm);
 
         ClassicRPS rule = new ClassicRPS();
         Scoreboard scoreboard = new Scoreboard();
 
-        Game game = new Game(human, mLComputer, rule, scoreboard, moveHistory);
+        Game game = new Game(human, computer, rule, scoreboard, moveHistory);
         game.play();
+
+        // Save ML data after game ends (don't save after every round)
+        moveHistory.saveData();
+
+        scanner.close();
     }
 }

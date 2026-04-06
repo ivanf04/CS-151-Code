@@ -1,24 +1,31 @@
 package Assignment_4_gangOfFour;
 
-
 /**
- * Factory to handle Choice Algorithm selection
+ * Factory class used to create the computer's choice algorithm 
+ * based on the command-line option.
  */
 public class ChoiceFactory {
-   
     /**
-     * 
-     * @param rand true for random choice, flase for MLChoice 
-     * @param moveHistory MoveHistory object for the game 
-     * @return
+     * Creates the appropriate choice algorithm from a command-line option.
+     *
+     * Supported options:
+     * - "-r" for random choice
+     * - "-m" for machine learning choice
+     *
+     * @param option the command-line option
+     * @param moveHistory the shared MoveHistory object used by MLChoice
+     * @return the requested ChoiceAlgorithm
+     * @throws IllegalArgumentException if the option is invalid
      */
-    public static ChoiceAlgorithm createChoice(boolean rand, MoveHistory moveHistory) {
-        if(rand) {
+    public static ChoiceAlgorithm createChoice(String option, MoveHistory moveHistory) {
+        if (option.equals("-r")) {
             return new randomChoice();
         }
-        else {
+
+        if (option.equals("-m")) {
             return new MLChoice(moveHistory);
         }
+
+        throw new IllegalArgumentException("Invalid option: " + option);
     }
-    
 }
