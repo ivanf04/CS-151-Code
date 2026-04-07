@@ -15,7 +15,7 @@ public class Game {
     private final ClassicRPS classicRPS;
     private final Scoreboard scoreboard;
     private final MoveHistory moveHistory;
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
 
 
     /**
@@ -30,12 +30,15 @@ public class Game {
     public Game(Player humanPlayer,
                 ComputerPlayer computerPlayer,
                 ClassicRPS classicRPS,
-                Scoreboard scoreboard) {
+                Scoreboard scoreboard,
+                Scanner scanner
+            ) {
 
         this.humanPlayer = humanPlayer;
         this.computerPlayer = computerPlayer;
         this.classicRPS = classicRPS;
         this.scoreboard = scoreboard;
+        this.scanner = scanner;
         this.moveHistory = new MoveHistory();
     }
 
@@ -53,13 +56,16 @@ public class Game {
                 Player mLComputer,
                 ClassicRPS classicRPS,
                 Scoreboard scoreboard,
-                MoveHistory moveHistory) {
+                MoveHistory moveHistory,
+                Scanner scanner
+            ) {
 
         this.humanPlayer = humanPlayer;
         this.computerPlayer = mLComputer;
         this.classicRPS = classicRPS;
         this.scoreboard = scoreboard;
         this.moveHistory = moveHistory;
+        this.scanner = scanner;
     }
     
 

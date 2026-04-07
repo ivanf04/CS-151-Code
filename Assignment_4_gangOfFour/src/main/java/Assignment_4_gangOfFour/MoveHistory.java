@@ -117,7 +117,7 @@ public class MoveHistory {
      * in future games.
      */
     public void saveData() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DATA_FILE))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DATA_FILE, true))) {
             for (Map.Entry<String, Integer> entry : frequencyMap.entrySet()) {
                 writer.write(entry.getKey() + ":" + entry.getValue());
                 writer.newLine();
