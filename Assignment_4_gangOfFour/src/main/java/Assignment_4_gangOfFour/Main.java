@@ -56,7 +56,7 @@ public class Main {
         ClassicRPS rule = new ClassicRPS();
         Scoreboard scoreboard = new Scoreboard();
 
-        Game game = new Game(human, computer, rule, scoreboard, moveHistory);
+        Game game = new Game(human, computer, rule, scoreboard, moveHistory, scanner);
         game.play();
 
         // Save ML data after game ends (don't save after every round)
