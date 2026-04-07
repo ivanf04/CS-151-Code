@@ -139,7 +139,9 @@ public class GameController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("About");
         alert.setHeaderText("Rock Paper Scissors ML");
-        alert.setContentText("Assignment 4 - Gang of Four\nA game that predicts your moves!");
+        alert.setContentText("Assignment 5 - Gang of Four\nA game that predicts your moves!"
+           + "\n\nHow to Play:\n\tSelect opponent, ML (machine learing) or random"
+           + "\n\tEnter the number of rounds\n\tPress \"Start Game\"");
         alert.showAndWait();
     }
 
