@@ -1,5 +1,4 @@
-
-package Assignment_4_gangOfFour;
+package Assignment_5_gangOfFour;
 
 /**
 * Acts as a scoreboard, tracking the running totals of human wins, computer wins, and draws.

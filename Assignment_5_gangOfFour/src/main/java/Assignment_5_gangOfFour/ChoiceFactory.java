@@ -1,4 +1,4 @@
-package Assignment_4_gangOfFour;
+package Assignment_5_gangOfFour;
 
 /**
  * Factory class used to create the computer's choice algorithm 
