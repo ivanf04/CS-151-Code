@@ -52,8 +52,8 @@ public class GameController {
         // If isML is false, it should pass true to ChoiceFactory (randomChoice).
 
         boolean randomChoiceFlag = !isML; 
-        this.algorithm = ChoiceFactory.createChoice(randomChoiceFlag, moveHistory);
-        this.computerPlayer = new ComputerPlayer("Computer", algorithm);
+        String mode = isML ? "-m" : "-r"; 
+        this.algorithm = ChoiceFactory.createChoice(mode, moveHistory);        this.computerPlayer = new ComputerPlayer("Computer", algorithm);
 
         // Transition the GUI to the game screen
         view.showGameScreen(maxRounds);
