@@ -34,7 +34,7 @@ If you are using Visual Studio Code, you will need the appropriate extension to 
 Once your environment is set up, navigate to the project folder and launch the JavaFX application:
 1. Change into the project directory:
  
-`cd Assignment_4_gangOfFour`
+`cd Assignment_5_gangOfFour`
 
 2. Run the application using Maven:
 
