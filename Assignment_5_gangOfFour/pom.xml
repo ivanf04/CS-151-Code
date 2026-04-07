@@ -40,7 +40,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>Assignment_4_gangOfFour.GUI_Interface</mainClass>
+                    <mainClass>Assignment_5_gangOfFour.GUI_Interface</mainClass>
                 </configuration>
             </plugin>
         </plugins>

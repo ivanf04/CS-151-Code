@@ -1,4 +1,3 @@
-
 package Assignment_5_gangOfFour;
 
 /**
