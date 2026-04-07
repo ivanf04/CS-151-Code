@@ -1,6 +1,0 @@
-bin/
-*.class
-.DS_Store
-lib/
-target/
-ml_frequency_data.txt
