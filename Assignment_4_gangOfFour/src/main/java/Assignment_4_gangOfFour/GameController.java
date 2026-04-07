@@ -47,11 +47,9 @@ public class GameController {
         this.scoreboard = new Scoreboard();
         this.classicRPS = new ClassicRPS();
 
-        // TODO : Connect the opponent toggle to ChoiceFactory.
         // If isML is true, it should pass false to ChoiceFactory (MLChoice).
         // If isML is false, it should pass true to ChoiceFactory (randomChoice).
-
-        boolean randomChoiceFlag = !isML; 
+        
         String mode = isML ? "-m" : "-r"; 
         this.algorithm = ChoiceFactory.createChoice(mode, moveHistory);        this.computerPlayer = new ComputerPlayer("Computer", algorithm);
 
